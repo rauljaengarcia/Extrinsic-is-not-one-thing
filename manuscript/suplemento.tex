@@ -1,0 +1,159 @@
+% ============================================================
+%  GENERADO POR generar_suplemento.py -- NO EDITAR A MANO
+%  Fuente: experimento/resultados/c2_ne.json
+%  Corrida: 2026-09-13T21:38:26Z  code_sha256_16=2f4ecfd3aa636719
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage[authoryear,round]{natbib}
+\renewcommand{\thetable}{S\arabic{table}}
+\title{Supplementary material\\[2pt]\large Cohort and
+generation-interval measurements}
+\author{Ra\'ul-Antonio Ja\'en-Garc\'ia}
+\date{}
+\begin{document}
+\maketitle
+
+\noindent This document accompanies \emph{Extrinsic Is Not One Thing:
+Recipient Exchangeability in Evolutionary Systems}. It reports the
+cohort and generation-interval measurements referred to in the
+substrate-validation section of the main text. Every number below is
+generated from the same result file that produces the corresponding
+statements in the main text, by the script
+\texttt{generar\_suplemento.py} in the repository.
+
+\section*{S1. What was measured, and why}
+
+The effective population size reported in the main text is estimated
+from the decay of neutral marker variance. Comparing that estimate
+against Wright's $N_e = 4N/(V_k+2)$ requires the variance in offspring
+number $V_k$, and comparing it against the overlapping-generation
+correction of \citet{hill1972} requires in addition the generation
+interval $T$.
+Both are properties of cohorts rather than of instantaneous state, so
+they are measured by following identified cohorts to extinction.
+
+Individuals are identified by the pair (slot, birth time). The
+substrate reuses array slots when an individual dies, so identifying
+cohort members by slot alone counts several successive occupants as
+one individual; that error produced offspring counts of 45 and 188 per
+individual before it was corrected. The cohort loop also runs for the
+full horizon at every population size rather than stopping when the
+focal cohort is exhausted, so that the comparison across sizes is over
+the same number of generations of drift.
+
+\section*{S2. Generation interval and offspring-number variance}
+
+\begin{table}[ht]
+\centering\small
+\caption{Cohort measurements at three census sizes. $\bar{k}$ is mean
+offspring number per individual followed to extinction, $V_k$ its
+variance, $T$ the generation interval in substrate steps, and
+$T/\mathrm{lifetime}$ the interval expressed in mean lifetimes.}
+\label{tab:s_cohortes}
+\begin{tabular}{rrrrrrr}
+\toprule
+$R$ & $N$ & $\bar{k}$ & $V_k$ & $T$ & mean lifetime & $T/\mathrm{lifetime}$\\
+\midrule
+250 & 368.7 & 1.362 & 1.868 & 109.98 & 80.40 & 1.368\\
+500 & 737.2 & 1.380 & 1.965 & 109.90 & 80.28 & 1.369\\
+1\,000 & 1\,474.8 & 1.369 & 1.844 & 109.93 & 80.29 & 1.369\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two features of Table~\ref{tab:s_cohortes} carry the argument of the
+main text. First, the generation interval is \emph{flat}: $T$ varies
+between 109.90 and 109.98 steps while $N$ grows from
+369 to 1\,475, a spread of
+0.07\% across a fourfold change
+in census size. Second, $V_k$ is likewise approximately constant, at
+1.84 to 1.96, with $\bar{k}$ between
+1.362 and 1.380.
+
+\section*{S3. $V_k$ does not explain the sublinear scaling}
+
+\begin{table}[ht]
+\centering\small
+\caption{Measured $N_e$ against Wright's prediction and against the
+overlapping-generation correction. The correction moves the prediction
+in the wrong direction at every size.}
+\label{tab:s_ne}
+\begin{tabular}{rrrrrr}
+\toprule
+$N$ & $N_e$ measured & $4N/(V_k+2)$ & ratio & Hill $4N_bT/(V_k+2)$ & ratio\\
+\midrule
+368.7 & 197.8 & 381.3 & 0.519 & 521.7 & 0.379\\
+737.2 & 325.5 & 743.8 & 0.438 & 1\,018.3 & 0.320\\
+1\,474.8 & 461.8 & 1\,534.8 & 0.301 & 2\,101.3 & 0.220\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+With $V_k$ near two, Wright's expression predicts $N_e \approx N$. The
+measured value is 0.30 to 0.52 of that, and the
+ratio \emph{falls} as $N$ grows, which is the sublinear scaling
+reported in the main text. Since $V_k$ is flat across the same range,
+it cannot be what produces the scaling, and we have no mechanism that
+does.
+
+The overlapping-generation correction of \citet{hill1972}, $N_e =
+4 N_b T / (V_k + 2)$, is the natural candidate, since this substrate has
+continuous reproduction and overlapping generations. It does not help.
+Because $T$ is constant at about 110 steps rather
+than growing with $N$, the correction multiplies the prediction by a
+roughly fixed factor, raising it further above a measurement that was
+already below it: the ratio moves from
+0.30--0.52 to 0.22--0.38,
+that is, further from one at every size. We report the hypothesis as
+falsified rather than adjusting it.
+
+\section*{S4. The two estimators of $N_e$}
+
+\begin{table}[ht]
+\centering\small
+\caption{The drift-based and mutation--drift-balance estimators of
+$N_e$, and their ratio. Agreement improves as $N$ grows.}
+\label{tab:s_estimadores}
+\begin{tabular}{rrrr}
+\toprule
+$N$ & $N_e$ from drift & $N_e$ from mutation--drift & ratio\\
+\midrule
+368.7 & 197.8 & 91.7 & 2.158\\
+737.2 & 325.5 & 160.0 & 2.034\\
+1\,474.8 & 461.8 & 374.1 & 1.234\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The two estimators are independent: one reads the decay of neutral
+variance, the other its equilibrium level under recurrent mutation.
+They agree to within a factor of 1.2 to 2.2,
+and the agreement improves monotonically with $N$. We report this as
+partial concordance rather than confirmation: a factor of two between
+two estimators of the same quantity is a real discrepancy, not a
+rounding difference, and it is consistent with the sublinear scaling
+of \S S3 being a property of the substrate that neither estimator
+fully captures.
+
+\section*{S5. Provenance}
+
+\begin{tabular}{ll}
+\toprule
+Result file & \texttt{c2\_ne.json}\\
+Run completed & 2026-09-13T21:38:26Z\\
+Source hash (\texttt{code\_sha256\_16}) & \texttt{2f4ecfd3aa636719}\\
+Python & 3.10.5\\
+NumPy & 1.26.4\\
+Seeds per point & 16\\
+Burn-in steps & 5\,000\\
+\bottomrule
+\end{tabular}
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+\end{document}

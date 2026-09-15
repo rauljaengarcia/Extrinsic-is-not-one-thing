@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+type: software
+title: "Extrinsic Is Not One Thing: Recipient Exchangeability in Evolutionary Systems (code and data)"
+abstract: >-
+  Simulation substrate, analysis pipeline, pre-registration and reproduction
+  material for the manuscript "Extrinsic Is Not One Thing: Recipient
+  Exchangeability in Evolutionary Systems". Includes the digital ecology in
+  which both coordinates are manipulated independently, the three-arm
+  reliance design, and a test suite that re-derives the manuscript's
+  dominance claims from its own audit table.
+authors:
+  - family-names: "Jaén-García"
+    given-names: "Raúl-Antonio"
+    affiliation: "Universidad Politécnica de Cartagena, Cartagena, Spain"
+    orcid: "https://orcid.org/0009-0004-1273-1422"
+    email: "raul.jaen@edu.upct.es"
+  # Jorge Larrey-Ruiz no usa ORCID: es una decision suya, no un dato que falte.
+  - family-names: "Larrey-Ruiz"
+    given-names: "Jorge"
+    affiliation: "Universidad Politécnica de Cartagena, Cartagena, Spain"
+    email: "jorge.larrey@upct.es"
+contact:
+  - family-names: "Jaén-García"
+    given-names: "Raúl-Antonio"
+    email: "raul.jaen@edu.upct.es"
+year: 2026
+license: Apache-2.0
+repository-code: "https://github.com/rauljaengarcia/Extrinsic-is-not-one-thing"
+keywords:
+  - recipient exchangeability
+  - anonymity
+  - evolutionary transitions
+  - biological organization
+  - digital evolution
+  - artificial life
+  - reproducibility
+
+# Sin DOI todavia: no existe ninguno y no se inventa.
+# Cuando el repositorio se archive en Zenodo, el DOI que Zenodo devuelva va
+# aqui, como campo de primer nivel:
+#
+# doi: 10.5281/zenodo.XXXXXXX
+#
+# y conviene anadir tambien, dentro de `identifiers:`, el DOI del articulo
+# publicado, con description: "The paper this software accompanies".

@@ -1,0 +1,170 @@
+% ============================================================
+\section{Methods}
+% ============================================================
+
+The audit establishes what the rules are; it cannot show that the partial ones
+matter, and it cannot show that the two coordinates come apart under
+intervention rather than only on paper. We therefore built the smallest system
+in which both coordinates can be manipulated independently, and ran the three
+arms in it. Code, configurations, seeds and the analysis pipeline are
+available in the repository described below.\footnote{Repository: see Data
+Availability. Every result file carries a
+manifest with the full run specifications, a hash of the source that produced
+it, and the environment versions.}
+
+\subsection{Substrate}
+
+A vector-genome ecology of digital organisms, written in \textsc{numpy}. We
+deliberately did not build an instruction-set interpreter in the Tierra/Avida
+lineage. The hypotheses require heredity, variation, differential reproduction,
+competition for a limited resource, and the ability to label lineages and
+condition allocations on the label. They do not require programs that copy
+themselves, and an interpreter would have added a validation burden that buys
+nothing here.
+
+Each organism carries an energy reserve, a lineage label $\ell$, and four
+genes, each with a declared role and a quantitative prediction attached to it:
+acquisition affinity $a$, whose share of the resource is proportional to $a$
+and whose maintenance cost is $c_0 + k_c a^2$; the fraction $\varphi$ of the
+parent's reserve transferred to offspring; a modifier of the organism's own
+mutation rate; and a selectively neutral marker.
+
+Two design constraints were treated as binding. First, \emph{every gene must do
+something}: a gene with no effect turns everything measured on it into drift.
+Second, \emph{every gene must face a trade-off}. Without the quadratic cost
+term, $a$ increases without bound; without a cost of holding reserves,
+$\varphi$ runs to its ceiling because a parent can wait indefinitely at no
+risk. Both failures occurred in development and both were fixed by adding the
+missing cost, not by bounding the gene.
+
+Population density is self-regulating rather than imposed: the total resource
+per step is fixed, so per-capita income falls as the population grows, and
+mortality is condition-dependent, falling with the reserve. There is no
+arbitrary culling rule and no carrying-capacity parameter.
+
+\subsection{Substrate validation}
+
+None of what follows is interpretable if the world does not behave like an
+evolving population. We therefore validated it against four quantitative
+predictions external to the code that evaluates them, and treated this as
+blocking. The strongest is specific to this model: the affinity gene has an
+interior evolutionarily stable value, obtained by setting the invasion gradient
+to zero in a monomorphic population of size $N$,
+\begin{equation}
+a^{*} \;=\; \sqrt{\frac{R\,(N-1)}{2\,k_c\,N^{2}}} ,
+\label{eq:ess}
+\end{equation}
+which is a sharp prediction that varies with two parameters. The others are the
+breeder's equation and drift. A fourth, mutation--drift balance, is a
+scale-consistency check on the implementation rather than an independent test
+of drift theory, and we report it as such. To these four we add a robustness
+check, the insensitivity of the qualitative pattern to arbitrary parameters:
+five checks in all. Results are in \S6.1.
+
+Two of these tests are easy to run wrongly, and we report how because the wrong
+version passes inspection. Drift must not be measured with a marker that starts
+variable alongside a gene under selection: what is then observed is genetic
+draft, it decays far faster and erratically, and it does not resemble
+$(1-1/2N)^g$. We freeze the physiological genes for that test. And the selection
+differential must be measured against the set of candidates the truncation acts
+on, not against the whole population; against the whole population $S$ is
+diluted by a demographic factor and $R/S$ departs from unity with nothing
+wrong.
+
+\subsection{The manipulated rule and the four conditions}
+
+The rule we manipulate allocates energy between organisms. Collection is
+identical in all four conditions: every organism above a threshold contributes
+a fixed amount with fixed probability. Allocation sends each contribution to
+the neediest candidate in a random sample. The conditions are the four ways of
+varying two things and nothing else:
+
+\begin{description}[leftmargin=*,style=nextline,itemsep=1pt]
+\item[$C$:] whether the transfer is executed by the organisms themselves
+($\mathrm{I}$) or by a central allocator ($\mathrm{E}$).
+\item[$A$:] whether the candidate set is any living organism ($A=0$) or is
+conditioned on the label ($A=1$)---the focal label for the central allocator,
+the donor's own label for the organisms.
+\end{description}
+
+Volume, timing, criterion, sample size and topology are identical across the
+four cells by construction, and the random number stream is consumed in the
+same order, which is what makes the regression tests below exact rather than
+approximate.
+
+\subsection{The two interventions}
+
+\paragraph{Removal of the external operator}
+The support supplied from outside $D$ is withheld. Where $C=\mathrm{E}$ the
+transfer stops. Where $C=\mathrm{I}$ there is no external machinery to withhold:
+the mechanism is instantiated inside the focal system, and removing it would be
+amputating part of $D$ rather than withdrawing support from it. That asymmetry
+is not an artefact of the implementation---it is what the control coordinate
+asserts, and the intervention is simply the coordinate made operational.
+
+\paragraph{Relabelling}
+Once the population is stable, living organisms are cloned: state copied
+exactly, label changed. This is the test of \S3.2 run inside a controlled
+system, and it settles by construction what the test elsewhere has to
+establish by assumption---that the two configurations differ in the label and
+in nothing else.
+
+The observable is what the rule \emph{allocates}, per organism-step, within a
+window after the injection. It is not long-run survival of the injected
+lineage, and the difference is not cosmetic. Under an exchangeable rule the
+injected lineage is a neutral marker, so its frequency drifts to absorption
+with fixation probability equal to its initial frequency; averaging the final
+population over seeds then returns the initial fraction and looks exactly like
+persistence while being its opposite. An earlier version of this experiment
+reported that average as a result. The per-seed contrast behind it was one
+survival in ten against zero in ten, which Fisher's exact test does not
+distinguish ($p=1.0$).
+
+\subsection{The three arms}
+
+Three manipulations were run, each with arms B, R and S as defined in \S3.4,
+with $\Phi$ the autonomous reproductive cycles completed by the focal lineage
+within a fixed horizon, and with the size of a competing lineage varied as a
+dose.
+
+The first is a negative control. The audit says the transfer rule under
+$\mathrm{E/p}$ is recipient-partial; the pre-registered prediction is
+nonetheless $\rho=\texttt{NA}$, because baseline dependence is not positive. A
+method that returned a small $\rho$ there would be manufacturing a measurement
+where there is no dependence to apportion. The second supplies a reproductive
+resource, partially in arm B and under an open, dynamically attainable
+enrolment condition in arm S. The third suppresses competitors: arm B bars the
+non-focal lineage from reproducing, and arm S bars the same fraction by a
+symmetric condition on state. The third is where $\rho$ should be near one,
+because the benefit in arm B is \emph{being the exempt one}, and an open rule
+cannot reproduce it---it would bar the focal lineage too.
+
+Building an exchangeable provider is itself a design act, and a rule that is
+formally open can be practically closed. The enrolment condition is therefore
+dynamically attainable in the sense of \S2.2---any organism with enough reserve
+can pay it---and the relabelling test is available as a check: if no foreign
+lineage could ever qualify, the rule was partial all along. Allocating
+computational resources through open markets is long established outside this
+field \citep{sutherland1968,miller1988,waldspurger1992}; we borrow the idea of
+an access rule indifferent to who is asking rather than proposing it. What we
+have not found is its use as a controlled substitution arm in an evolutionary
+system.
+
+\paragraph{Matching}
+Arm S was matched to arm B on emitted volume for the resource manipulation and
+on suppressed fraction for the suppression manipulation, calibrated in pilot
+runs whose seeds are disjoint from the confirmatory ones and which are
+discarded. Timing, latency and topology are identical by construction. The
+acquisition cost the recipient pays in arm S is reported separately and never
+absorbed into $\Phi$. The tolerance, the guard $\epsilon$, the number of seeds
+and the primary definition of $\Phi$ were fixed before the confirmatory runs.
+
+\paragraph{What we did not run}
+One manipulation suggested by \S4.5 is absent: making execution itself a
+service, so that any entity may step any other on a rule open to all. It is the
+arm closest to the on-chain systems, and it remains the most valuable thing to
+run next. Its central claim, however---that two populations equally dependent
+on external supply can differ in \emph{for whom} that supply exists---is
+exactly what the $\mathrm{E/x}$ versus $\mathrm{E/p}$ contrast tests here,
+under a rule we could hold identical in every other respect. We took the
+general form first.

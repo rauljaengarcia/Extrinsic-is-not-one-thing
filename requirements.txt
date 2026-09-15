@@ -1,0 +1,10 @@
+# Versions used to produce the published results.
+#
+# The manifest inside every file in results/ records the environment that
+# actually generated it, so these pins can be checked rather than trusted:
+#   python 3.10.5, numpy 1.26.4, Windows, 12 cores.
+#
+# Only two direct dependencies. The substrate is plain NumPy; parallelism is
+# the standard library's multiprocessing.
+numpy==1.26.4
+matplotlib==3.7.1

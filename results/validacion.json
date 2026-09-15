@@ -1,0 +1,44 @@
+{
+ "manifiesto": {
+  "nombre": "validacion",
+  "fecha_utc": "2026-09-12T17:54:51Z",
+  "code_sha256_16": "2f4ecfd3aa636719",
+  "entorno": {
+   "python": "3.10.5",
+   "numpy": "1.26.4",
+   "platform": "Windows-10-10.0.26200-SP0",
+   "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+   "cpu_count": 12
+  },
+  "n_runs": 5,
+  "specs": [],
+  "nota": "validacion del sustrato; bloqueante"
+ },
+ "filas": [
+  {
+   "prueba": "ESS de la afinidad",
+   "pasa": true,
+   "detalle": "error relativo maximo 0.3% sobre 6 combinaciones"
+  },
+  {
+   "prueba": "Ecuacion del criador",
+   "pasa": true,
+   "detalle": "R/S se desvia de 1 como maximo 0.000 en tres intensidades"
+  },
+  {
+   "prueba": "Deriva neutral",
+   "pasa": true,
+   "detalle": "la varianza decae en las tres poblaciones y N_e crece monotonamente (228 -> 495 al pasar N de 369 a 1475), con N_e ~ N^0.56"
+  },
+  {
+   "prueba": "Equilibrio mutacion-deriva",
+   "pasa": true,
+   "detalle": "V_eq/V_m constante dentro de 0.0%  (2 N_e = 344, N ~ 172)"
+  },
+  {
+   "prueba": "Insensibilidad a parametros",
+   "pasa": true,
+   "detalle": "las identidades estructurales se mantienen en 10/10 variantes donde la regla se dispara (1 degenerada/s); la retirada muerde en 10 de 10"
+  }
+ ]
+}

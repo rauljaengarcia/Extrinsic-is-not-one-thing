@@ -1,0 +1,49 @@
+# --- Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- LaTeX
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.out
+*.run.xml
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.spl
+
+# --- sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- salidas de una reejecucion
+# `src/runner.py` escribe aqui; los ficheros publicados viven en
+# results/ y figures/, que SI se versionan.
+/resultados/
+/figuras/

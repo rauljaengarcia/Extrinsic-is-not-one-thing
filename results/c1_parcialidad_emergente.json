@@ -1,0 +1,44 @@
+{
+ "manifiesto": {
+  "nombre": "c1_parcialidad_emergente",
+  "fecha_utc": "2026-09-13T11:51:34Z",
+  "code_sha256_16": "2f4ecfd3aa636719",
+  "entorno": {
+   "python": "3.10.5",
+   "numpy": "1.26.4",
+   "platform": "Windows-10-10.0.26200-SP0",
+   "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+   "cpu_count": 12
+  },
+  "n_runs": 2,
+  "specs": [],
+  "nota": "C1: parcialidad emergente bajo la regla abierta",
+  "n_seed_observacion": 20,
+  "dosis": 200,
+  "muestreo_cada": 100
+ },
+ "filas": [
+  {
+   "nivel": "b",
+   "brazo": "B",
+   "a_in": 1.0345676704932907,
+   "a_out": 1.0261626366553898,
+   "E_in": 7.574598361370867,
+   "E_out": 8.131153433530601,
+   "frac_serv": 0.9997656720450736,
+   "pctl_a": 0.49968407163567996,
+   "pctl_E": 0.49818455585262733
+  },
+  {
+   "nivel": "b",
+   "brazo": "S",
+   "a_in": 1.1972609159329306,
+   "a_out": 1.1986597139861475,
+   "E_in": 7.494734605471183,
+   "E_out": 5.0979236145760645,
+   "frac_serv": 0.9874159949607684,
+   "pctl_a": 0.4991757112677244,
+   "pctl_E": 0.5038690513987696
+  }
+ ]
+}
