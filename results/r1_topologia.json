@@ -1,0 +1,298 @@
+{
+ "manifiesto": {
+  "nombre": "r1_topologia",
+  "fecha_utc": "2026-10-30T18:44:45Z",
+  "code_sha256_16": "4198f29ff3691b1b",
+  "entorno": {
+   "python": "3.10.5",
+   "numpy": "1.26.4",
+   "platform": "Windows-10-10.0.26200-SP0",
+   "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+   "cpu_count": 12
+  },
+  "n_runs": 4,
+  "specs": [],
+  "n_simulaciones": 0,
+  "fuente": "ortogonalidad.json (filas {cond}_iny)",
+  "bootstrap": {
+   "tipo": "percentil emparejado por semilla",
+   "n_boot": 10000,
+   "semilla": 20260911
+  },
+  "kappa_igual_a_tabla4": true,
+  "procedencia": {
+   "script": "r1_topologia.py",
+   "script_sha256_16": "89f6830b37c92efa",
+   "src_publicado_sha256_16": "2f4ecfd3aa636719",
+   "src_publicado_intacto": true,
+   "code_sha256_16_src_completo": "4198f29ff3691b1b",
+   "codigo_r1_sha256_16": {
+    "src/ecologia_graduada.py": "d1dcb521d68a050f",
+    "src/estadistica_r1.py": "e8b79426af66df8c",
+    "experiments/r1_comun.py": "c2b04d8c62b69a7c",
+    "experiments/r1_sensibilidad_coste.py": "4a57dfeb93dff2dc",
+    "experiments/r1_topologia.py": "89f6830b37c92efa",
+    "experiments/r1_graduada.py": "c1e04a89aeca0032"
+   },
+   "matplotlib": "3.7.1",
+   "python": "3.10.5",
+   "fuentes": {
+    "ortogonalidad.json": {
+     "sha256_16": "c926a2b10fc96c22",
+     "code_sha256_16": "2f4ecfd3aa636719",
+     "fecha_utc": "2026-09-13T21:02:43Z"
+    }
+   }
+  }
+ },
+ "filas": [
+  {
+   "n_semillas": 100,
+   "semillas": [
+    0,
+    99
+   ],
+   "kappa": [
+    0.9891675770626558,
+    0.9796623363102106,
+    0.9986627971647386
+   ],
+   "s": [
+    0.9976290142720063,
+    0.9894143269446425,
+    1.0058761213067313
+   ],
+   "nacimientos": [
+    0.997989853000457,
+    0.9923299343109493,
+    1.003592943679687
+   ],
+   "flow_00": [
+    7775.1,
+    7644.17925,
+    7913.97075
+   ],
+   "flow_01": [
+    2011.2,
+    1959.2085,
+    2062.65225
+   ],
+   "flow_10": [
+    2009.52,
+    1972.4085,
+    2045.82
+   ],
+   "flow_11": [
+    556.59,
+    525.47925,
+    587.55
+   ],
+   "media_recv_pc_L0": 0.034798614503735406,
+   "media_recv_pc_L1": 0.0347161074853931,
+   "media_from_L0_pc_L0": 0.027615557908674458,
+   "media_from_L0_pc_L1": 0.027316414505756975,
+   "media_born_pc_L0": 0.011837943959266704,
+   "media_born_pc_L1": 0.011814147951736225,
+   "cond": "Ix",
+   "etiqueta": "I/x",
+   "esperado": {
+    "kappa": {
+     "esperado": 0.99,
+     "obtenido": 0.9891675770626558,
+     "confirma": true
+    },
+    "s": {
+     "esperado": 1.0,
+     "obtenido": 0.9976290142720063,
+     "confirma": true
+    }
+   }
+  },
+  {
+   "n_semillas": 100,
+   "semillas": [
+    0,
+    99
+   ],
+   "kappa": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "s": [
+    1.0007601859721178,
+    0.993027995890405,
+    1.0085537562806524
+   ],
+   "nacimientos": [
+    1.001721532588734,
+    0.9992731177547768,
+    1.0042550152070742
+   ],
+   "flow_00": [
+    9803.55,
+    9710.69625,
+    9900.15225
+   ],
+   "flow_01": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "flow_10": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "flow_11": [
+    2526.81,
+    2465.93925,
+    2587.3207500000003
+   ],
+   "media_recv_pc_L0": 0.034725497459166164,
+   "media_recv_pc_L1": 0.03475189529520944,
+   "media_from_L0_pc_L0": 0.034725497459166164,
+   "media_from_L0_pc_L1": 0.0,
+   "media_born_pc_L0": 0.011865234381498911,
+   "media_born_pc_L1": 0.01188566076915963,
+   "cond": "Ip",
+   "etiqueta": "I/p",
+   "esperado": {
+    "kappa": {
+     "esperado": 0.0,
+     "obtenido": 0.0,
+     "confirma": true
+    },
+    "s": {
+     "esperado": 1.0,
+     "obtenido": 1.0007601859721178,
+     "confirma": true
+    }
+   }
+  },
+  {
+   "n_semillas": 100,
+   "semillas": [
+    0,
+    99
+   ],
+   "kappa": [
+    0.9891675770626558,
+    0.9796623363102106,
+    0.9986627971647386
+   ],
+   "s": [
+    0.9976290142720063,
+    0.9894143269446425,
+    1.0058761213067313
+   ],
+   "nacimientos": [
+    0.997989853000457,
+    0.9923299343109493,
+    1.003592943679687
+   ],
+   "flow_00": [
+    7775.1,
+    7644.17925,
+    7913.97075
+   ],
+   "flow_01": [
+    2011.2,
+    1959.2085,
+    2062.65225
+   ],
+   "flow_10": [
+    2009.52,
+    1972.4085,
+    2045.82
+   ],
+   "flow_11": [
+    556.59,
+    525.47925,
+    587.55
+   ],
+   "media_recv_pc_L0": 0.034798614503735406,
+   "media_recv_pc_L1": 0.0347161074853931,
+   "media_from_L0_pc_L0": 0.027615557908674458,
+   "media_from_L0_pc_L1": 0.027316414505756975,
+   "media_born_pc_L0": 0.011837943959266704,
+   "media_born_pc_L1": 0.011814147951736225,
+   "cond": "Ex",
+   "etiqueta": "E/x",
+   "esperado": {
+    "kappa": {
+     "esperado": 0.99,
+     "obtenido": 0.9891675770626558,
+     "confirma": true
+    },
+    "s": {
+     "esperado": 1.0,
+     "obtenido": 0.9976290142720063,
+     "confirma": true
+    }
+   }
+  },
+  {
+   "n_semillas": 100,
+   "semillas": [
+    0,
+    99
+   ],
+   "kappa": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "s": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "nacimientos": [
+    0.6735052287605291,
+    0.6673381101921129,
+    0.6797864342537489
+   ],
+   "flow_00": [
+    11380.38,
+    11300.66475,
+    11461.11075
+   ],
+   "flow_01": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "flow_10": [
+    979.47,
+    956.13,
+    1002.4507500000001
+   ],
+   "flow_11": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "media_recv_pc_L0": 0.03811644322411192,
+   "media_recv_pc_L1": 0.0,
+   "media_from_L0_pc_L0": 0.03509247529192523,
+   "media_from_L0_pc_L1": 0.0,
+   "media_born_pc_L0": 0.012200023494786029,
+   "media_born_pc_L1": 0.008216779614739694,
+   "cond": "Ep",
+   "etiqueta": "E/p",
+   "esperado": {
+    "kappa": {
+     "esperado": 0.0,
+     "obtenido": 0.0,
+     "confirma": true
+    },
+    "s": {
+     "esperado": 0.0,
+     "obtenido": 0.0,
+     "confirma": true
+    }
+   }
+  }
+ ]
+}

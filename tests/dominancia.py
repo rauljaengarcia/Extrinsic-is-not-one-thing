@@ -205,8 +205,8 @@ def main(ruta=None):
           not domina(sov, repl, filas, (), with_p),
           compara(sov, repl, filas, (), with_p))
 
-    # contexto: los tres pares de §4.7, que P3 describe explicitamente
-    print("\n  (contexto) los tres pares de §4.7")
+    # contexto: los tres pares de §4.6, que P3 describe explicitamente
+    print("\n  (contexto) los tres pares de §4.6")
     for etiq, ov in VALORES_H:
         print(f"    -- {etiq}")
         for a, b in combinations([localizar(filas, "Avida"), repl, sov], 2):
