@@ -1,12 +1,12 @@
 # Extrinsic Is Not One Thing: Recipient Exchangeability in Evolutionary Systems
 
-Code, data and reproduction material for the manuscript of the same name, by
+Code, data and reproduction material for the article of the same name, by
 Raúl-Antonio Jaén-García and Jorge Larrey-Ruiz (Universidad Politécnica de
-Cartagena).
+Cartagena), published in *BioSystems* (2026),
+https://doi.org/10.1016/j.biosystems.2026.106006.
 
-**This repository is administered by Raúl-Antonio Jaén-García.** It is private
-until publication; access is granted on request to editors and reviewers —
-write to `raul.jaen@edu.upct.es`.
+**This repository is administered by Raúl-Antonio Jaén-García**
+(`raul.jaen@edu.upct.es`).
 
 The paper argues that a rule bearing on an evolutionary function has two
 independent properties — who implements it, and whether what it supplies
@@ -207,5 +207,5 @@ failing.
 
 ## 8. How to cite
 
-See `CITATION.cff`. Cite the manuscript for the ideas and results; cite the
-software entry for the code itself.
+See `CITATION.cff`. Cite the article, https://doi.org/10.1016/j.biosystems.2026.106006,
+for the ideas and results; cite the software entry for the code itself.

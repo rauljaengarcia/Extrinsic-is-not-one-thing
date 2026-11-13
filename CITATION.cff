@@ -27,6 +27,10 @@ contact:
 year: 2026
 license: Apache-2.0
 repository-code: "https://github.com/rauljaengarcia/Extrinsic-is-not-one-thing"
+identifiers:
+  - type: doi
+    value: "10.1016/j.biosystems.2026.106006"
+    description: "The paper this software accompanies"
 keywords:
   - recipient exchangeability
   - anonymity
@@ -36,11 +40,10 @@ keywords:
   - artificial life
   - reproducibility
 
-# Sin DOI todavia: no existe ninguno y no se inventa.
+# El software aun no tiene DOI propio: no existe ninguno y no se inventa.
 # Cuando el repositorio se archive en Zenodo, el DOI que Zenodo devuelva va
 # aqui, como campo de primer nivel:
 #
 # doi: 10.5281/zenodo.XXXXXXX
 #
-# y conviene anadir tambien, dentro de `identifiers:`, el DOI del articulo
-# publicado, con description: "The paper this software accompanies".
+# El DOI del articulo publicado ya esta en `identifiers:` (nov 2026).
